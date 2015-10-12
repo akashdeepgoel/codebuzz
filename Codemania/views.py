@@ -65,23 +65,32 @@ def sendSubmission(request):
 		return render(request,"Codemania/problems/problem.html",context)
 	else:
 		output_status = response["run_status"]["status"]
-		form = Problem_submission()
-		form.submission = code_submitted
-		form.problem_title = problem_title
-		form.status = output_status
-		form.running_time = response["run_status"]["time_used"]
-		form.submitted_by = request.POST.get("user")
-		form.submitted_at = timezone.now()
-		form.memory_used = response["run_status"]["memory_used"]
-		form.save()
 		if output_status== "AC":
 			output = response["run_status"]["output_html"]
 			output = output.replace("<br>",",")
 			output = output[:len(output)-1]
 			correct = problem.correct_answer
 			if output==correct:
+				form = Problem_submission()
+				form.submission = code_submitted
+				form.problem_title = problem_title
+				form.status = "AC"
+				form.running_time = response["run_status"]["time_used"]
+				form.submitted_by = request.POST.get("user")
+				form.submitted_at = timezone.now()
+				form.memory_used = response["run_status"]["memory_used"]
+				form.save()
 				return render(request,"Codemania/result.html",{"status":1})
 			else:
+				form = Problem_submission()
+				form.submission = code_submitted
+				form.problem_title = problem_title
+				form.status = "WA"
+				form.running_time = response["run_status"]["time_used"]
+				form.submitted_by = request.POST.get("user")
+				form.submitted_at = timezone.now()
+				form.memory_used = response["run_status"]["memory_used"]
+				form.save()
 				return render(request,"Codemania/result.html",{"status":0})
 		else:
 			return render(request,"Codemania/result.html",{"status":0})
