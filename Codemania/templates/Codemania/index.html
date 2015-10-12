@@ -1,0 +1,9 @@
+{% if problems %}
+    <ul>
+    {% for problem in problems %}
+        <li><a href="/Codemania/problems/{{ problem.title }}/">{{ problem.problem_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Questions are available.</p>
+{% endif %}

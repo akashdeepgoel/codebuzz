@@ -6,6 +6,7 @@ class Problem(models.Model):
 	problem_name = models.CharField(max_length = 200)
 	test_cases = models.CharField(max_length = 10000)
 	correct_answer = models.CharField(max_length = 10000, default = '')
+	added_at = models.DateTimeField('Addition Time')
 	def __str__(self):
 		return self.title
 class Problem_submission(models.Model):
@@ -14,6 +15,7 @@ class Problem_submission(models.Model):
 	status = models.CharField(max_length = 20)
 	running_time = models.IntegerField()
 	submitted_by = models.CharField(max_length = 100)
+	submitted_at = models.DateTimeField('Submission Time')
 	def __str__(self):
 		return self.submitted_by
 
