@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Status</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron">
+{% if status %}
+	<center><h1>Correct Answer!</h1><br>
+	<center><a href = "/Codemania/problems/" style="width: 300px;"><button class ="btn btn-primary" style = "width:300px; ">Click here to go to Problems Page</button></a></center>
+{% else %}
+    <center><h1>Oops Wrong Answer!</h1>
+    <center><h2>Even Akash gets Wrong Answer sometimes :P</h2></center>
+	<center><a href = "/Codemania/problems/" style="width: 300px;"><button class ="btn btn-primary" style = "width:300px; ">Click here to go to Problems Page</button></a></center>
+{% endif %}
+</div>
+</div>
+</body>
+</html>

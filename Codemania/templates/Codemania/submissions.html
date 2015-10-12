@@ -1,7 +1,6 @@
-{% load staticfiles %}
 <html>
 <head>
-<title>Problems @Codemania</title>
+<title>Submissions @Codemania</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -17,27 +16,22 @@
     #title{
     	font-size: 36px;
     }
-body {
-    background: white url("{% static 'img/back1.jpg' %}") no-repeat;
-   	background-opacity:0.1;
-
-}
 </style>
 </head>
 <body>
-{% if problems %}
+{% if submissions %}
 <div class="bs-example">
-<h1 id = "title">Problems</h1>
+<h1 id = "title">Recent Submissions</h1>
     <div class="list-group">
-        {% for problem in problems %}
-        <a href="/Codemania/problems/tags/{{ problem.title }}/" class="list-group-item active">
-            <span class="glyphicon glyphicon-file"></span>{{ problem.problem_name }} <span class="badge">Solve it!</span>
+        {% for submission in submissions %}
+        <a href="#" class="list-group-item active">
+            <span class="glyphicon glyphicon-file"></span>{{ submission.problem_title }} - by - {{ submission.submitted_by }} <span class="badge">{{submission.status}}</span>
         </a>
         {% endfor %}
     </div>
 </div>
 {% else %}
-    <p>No Questions are available.</p>
+    <p>No Submissions Yet.</p>
 {% endif %}
 </body>
 </html>

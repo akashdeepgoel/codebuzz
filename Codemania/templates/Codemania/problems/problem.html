@@ -1,12 +1,41 @@
+<html>
+<head>
+<title>{{problem.title}}@Codemania</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
 {% if problem %}
-    <ul>
-{% for problem_curr in problem %}<h1>{{problem_curr.problem_name}}</h1>
-<p>{{problem_curr.problem_statement|safe}}</p>
+<div class="container">
+  <div class="jumbotron">
+    <h1>{{problem.problem_name}}</h1>
+    <br>      
+    <p>{{problem.problem_statement|safe}}</p>      
+<p>Added at - {{problem.added_at}}</p>      
+<p><strong>Please type your code here (Only C++ is supported as of now)</strong></p>
+<form method="POST" action = '/Codemania/problems/submit'>{% csrf_token %}
+{{ form.as_p }}
+<input type = "text" name = "user" id = "frm"> <strong> Enter Your Name</strong><br><br>
+<select name="language">
+  <option value="CPP">C++</option>
+  <option value="C">C</option>
+  <option value="CPP11">C++ 11</option>
+  <option value="JAVA">Java</option>
+  <option value="PYTHON">Python 2.7</option>
+</select>
+<br> <br>
+<textarea name = "code" rows = "20" cols = "150"></textarea>
+<input type = "text" style="display:none;" name = "problem_name" value = {{problem.title}}>
 <br>
-<p>{{problem_curr.added_at}}</p>
-    {% endfor %}
-    </ul>
+<center>
+<button type = "submit" class ="btn btn-primary" style = "width:200px;">Submit</button></center>
+</form>
+</div>
+</div>
 {% else %}
-    <p>Invalid Code</p>
+ <p>Invalid Code</p>
 {% endif %}
-    
+</body>
+</html>

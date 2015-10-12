@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<html>
+<head>
+<title>Codemania</title>
+<style>
+body {
+    text-align: center;
+    background: white url("{% static 'img/back1.jpg' %}") no-repeat;
+
+}
+
+#title
+{
+	color: white;
+	font-size: 120px;
+	margin-top: 2em;
+}
+</style>
+<link href = "{%static 'css/buttons.css' %}" rel = "stylesheet">
+</head>
+<body>
+<h1 id = "title" >Welcome to Codemania</h1>
+<a href = "/Codemania/problems" class="button button-royal button-rounded button-giant" >Start Solving!</a>
+<a>   </a>
+<a href = "/Codemania/submissions" class="button button-royal button-rounded button-giant" style="margin-top:10em;">View Recent Submissions</a>
+</body>
+</html>
