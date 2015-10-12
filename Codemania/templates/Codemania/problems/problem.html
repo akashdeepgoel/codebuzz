@@ -1,0 +1,12 @@
+{% if problem %}
+    <ul>
+{% for problem_curr in problem %}<h1>{{problem_curr.problem_name}}</h1>
+<p>{{problem_curr.problem_statement}}</p>
+<br>
+<p>{{problem_curr.added_at}}</p>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Invalid COde</p>
+{% endif %}
+    

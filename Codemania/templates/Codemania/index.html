@@ -1,7 +1,7 @@
 {% if problems %}
     <ul>
     {% for problem in problems %}
-        <li><a href="/Codemania/problems/{{ problem.title }}/">{{ problem.problem_name }}</a></li>
+        <li><a href="/Codemania/problems/tags/{{ problem.title }}/">{{ problem.problem_name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

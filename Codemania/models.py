@@ -1,7 +1,7 @@
 from django.db import models
 
 class Problem(models.Model):
-	problem = models.CharField(max_length = 5000)
+	problem_statement = models.CharField(max_length = 5000)
 	title = models.CharField(max_length = 10)
 	problem_name = models.CharField(max_length = 200)
 	test_cases = models.CharField(max_length = 10000)
